@@ -1,0 +1,13 @@
+﻿(ProjectsOwnConfigProvider)
+	-> ConfigSettingsProvider 
+		-> ConfigProvider 
+			-> System.Configuration.ConfigurationManager
+
+Example config file:
+<configSections>
+      <section name="Health" requirePermission="false" type="System.Configuration.NameValueSectionHandler,System,Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+</configSections>
+
+<Health>
+  <add key="EnableAssessmentOnStart" value="false" />
+</Health>
