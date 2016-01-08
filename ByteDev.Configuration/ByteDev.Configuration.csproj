@@ -42,8 +42,10 @@
   <ItemGroup>
     <Compile Include="AppSettings\AppSettingsKeyNotExistException.cs" />
     <Compile Include="AppSettings\AppSettingsProvider.cs" />
+    <Compile Include="ConfigSection\IConfigSectionProvider.cs" />
     <Compile Include="ConfigValueConverter.cs" />
     <Compile Include="ConnectionSettings\ConnectionSettingsProvider.cs" />
+    <Compile Include="ConnectionSettings\IConnectionSettingsProvider.cs" />
     <Compile Include="UnexpectedConfigValueTypeException.cs" />
     <Compile Include="AppSettings\IAppSettingsProvider.cs" />
     <Compile Include="ConfigSection\ConfigSectionProvider.cs" />

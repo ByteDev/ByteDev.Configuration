@@ -3,6 +3,7 @@
 		-> ConfigProvider 
 			-> System.Configuration.ConfigurationManager
 
+----------------
 Example config file:
 <configSections>
       <section name="Health" requirePermission="false" type="System.Configuration.NameValueSectionHandler,System,Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
@@ -11,3 +12,12 @@ Example config file:
 <Health>
   <add key="EnableAssessmentOnStart" value="false" />
 </Health>
+
+----------------
+Usage:
+
+var configSectionProvider = new ConfigSectionProvider();
+
+var configSettingsProvider = new ConfigSettingsProvider(configSectionProvider);
+
+var value = configSettingsProvider.GetString("EnableAssessmentOnStart", "Health");
