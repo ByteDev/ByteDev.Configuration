@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="AppSettings\AppSettingsProviderTest.cs" />
     <Compile Include="AppSettings\DummySettings.cs" />
+    <Compile Include="ConfigSection\ConfigSectionProviderTest.cs" />
     <Compile Include="ConfigSection\ConfigSettingsProviderExceptionTest.cs" />
     <Compile Include="ConfigSection\ConfigSettingsProviderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
