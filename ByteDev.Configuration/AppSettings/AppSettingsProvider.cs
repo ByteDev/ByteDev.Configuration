@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 
 namespace ByteDev.Configuration.AppSettings
 {
@@ -73,6 +74,12 @@ namespace ByteDev.Configuration.AppSettings
         {
             var value = GetString(key);
             return _configValueConverter.GetDecimal(key, value);
+        }
+
+        public Uri GetAbsoluteUri(string key)
+        {
+            var value = GetString(key);
+            return _configValueConverter.GetAbsoluteUri(key, value);
         }
     }
 }

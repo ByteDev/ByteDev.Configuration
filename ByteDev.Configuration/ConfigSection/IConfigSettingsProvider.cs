@@ -33,5 +33,8 @@ namespace ByteDev.Configuration.ConfigSection
 
         decimal GetDecimal(string key, string sectionName);
         decimal GetDecimal(Enum key, Enum sectionName);
+
+        Uri GetAbsoluteUri(string key, string sectionName);
+        Uri GetAbsoluteUri(Enum key, Enum sectionName);
     }
 }

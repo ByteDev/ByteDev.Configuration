@@ -1,4 +1,6 @@
-﻿namespace ByteDev.Configuration
+﻿using System;
+
+namespace ByteDev.Configuration
 {
     internal class ConfigValueConverter
     {
@@ -88,6 +90,16 @@
             if (!decimal.TryParse(value, out result))
             {
                 throw new UnexpectedConfigValueTypeException(key, value, typeof(decimal));
+            }
+            return result;
+        }
+
+        public Uri GetAbsoluteUri(string key, string value)
+        {
+            Uri result;
+            if (!Uri.TryCreate(value, UriKind.Absolute, out result))
+            {
+                throw new UnexpectedConfigValueTypeException(key, value, typeof(Uri));
             }
             return result;
         }

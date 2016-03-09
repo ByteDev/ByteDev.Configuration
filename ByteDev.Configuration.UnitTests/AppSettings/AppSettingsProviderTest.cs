@@ -142,5 +142,18 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
         {
             Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _classUnderTest.ExistsButIsNotDecimal; });
         }
+
+
+        [Test]
+        public void WhenAbsoluteUriExists_ShouldGet()
+        {
+            Assert.That(_classUnderTest.ExistsAbsoluteUri.ToString(), Is.EqualTo("http://www.google.com/"));
+        }
+
+        [Test]
+        public void WhenExistsButIsNotAbsoluteUri_ShouldThrowException()
+        {
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _classUnderTest.ExistsButIsNotAbsoluteUri; });
+        }
 	}
 }

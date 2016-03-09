@@ -1,4 +1,5 @@
-﻿using ByteDev.Configuration.AppSettings;
+﻿using System;
+using ByteDev.Configuration.AppSettings;
 
 namespace ByteDev.Configuration.UnitTests.AppSettings
 {
@@ -60,6 +61,11 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
 			get { return GetDecimal("Exists.Decimal"); }
 		}
 
+        public Uri ExistsAbsoluteUri
+        {
+            get { return GetAbsoluteUri("Exists.AbsoluteUri"); }
+        }
+
 
         public byte ExistsButIsNotChar
         {
@@ -101,9 +107,14 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
 	        get { return GetLong("Exists.ButIsNotDouble"); }
 	    }
 
-	    public long ExistsButIsNotDecimal
+	    public decimal ExistsButIsNotDecimal
 	    {
-	        get { return GetLong("Exists.ButIsNotDecimal"); }
+	        get { return GetDecimal("Exists.ButIsNotDecimal"); }
+	    }	    
+        
+        public Uri ExistsButIsNotAbsoluteUri
+	    {
+            get { return GetAbsoluteUri("Exists.ButIsNotAbsoluteUri"); }
 	    }
 	}
 }

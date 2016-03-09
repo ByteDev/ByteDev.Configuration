@@ -6,10 +6,12 @@ namespace ByteDev.Configuration.ConfigSection
     public class ConfigSettingsProvider : IConfigSettingsProvider
     {
         private readonly IConfigSectionProvider _configSectionProvider;
+        private readonly ConfigValueConverter _configValueConverter;
 
         public ConfigSettingsProvider(IConfigSectionProvider configSectionProvider)
         {
             _configSectionProvider = configSectionProvider;
+            _configValueConverter = new ConfigValueConverter();
         }
 
         public string GetString(string key, string sectionName)
@@ -19,7 +21,7 @@ namespace ByteDev.Configuration.ConfigSection
 
             if (value == null)
             {
-                throw new ConfigSettingsProviderException(string.Format("Key '{0}' missing from section '{1}' in config file", key, sectionName));
+                throw new ConfigSettingsProviderException(string.Format("Key '{0}' missing from section '{1}' in config.", key, sectionName));
             }
             return value;
         }
@@ -31,13 +33,8 @@ namespace ByteDev.Configuration.ConfigSection
 
         public char GetChar(string key, string sectionName)
         {
-            char result;
-
-            if (!char.TryParse(GetString(key, sectionName), out result))
-            {
-                ThrowUnexpectedConfigValueTypeException(key, sectionName, typeof(char));
-            }
-            return result;
+            var value = GetString(key, sectionName);
+            return _configValueConverter.GetChar(key, value);
         }
 
         public char GetChar(Enum key, Enum sectionName)
@@ -47,13 +44,8 @@ namespace ByteDev.Configuration.ConfigSection
 
         public bool GetBool(string key, string sectionName)
         {
-            bool result;
-
-            if (!bool.TryParse(GetString(key, sectionName), out result))
-            {
-                ThrowUnexpectedConfigValueTypeException(key, sectionName, typeof(bool));
-            }
-            return result;
+            var value = GetString(key, sectionName);
+            return _configValueConverter.GetBool(key, value);
         }
 
         public bool GetBool(Enum key, Enum sectionName)
@@ -63,13 +55,8 @@ namespace ByteDev.Configuration.ConfigSection
 
         public byte GetByte(string key, string sectionName)
         {
-            byte result;
-
-            if (!byte.TryParse(GetString(key, sectionName), out result))
-            {
-                ThrowUnexpectedConfigValueTypeException(key, sectionName, typeof(byte));
-            }
-            return result;
+            var value = GetString(key, sectionName);
+            return _configValueConverter.GetByte(key, value);
         }
 
         public byte GetByte(Enum key, Enum sectionName)
@@ -79,13 +66,8 @@ namespace ByteDev.Configuration.ConfigSection
 
         public short GetShort(string key, string sectionName)
         {
-            short value;
-
-            if (!short.TryParse(GetString(key, sectionName), out value))
-            {
-                ThrowUnexpectedConfigValueTypeException(key, sectionName, typeof(short));
-            }
-            return value;
+            var value = GetString(key, sectionName);
+            return _configValueConverter.GetShort(key, value);
         }
 
         public short GetShort(Enum key, Enum sectionName)
@@ -95,13 +77,8 @@ namespace ByteDev.Configuration.ConfigSection
 
         public int GetInt(string key, string sectionName)
         {
-            int result;
-
-            if (!int.TryParse(GetString(key, sectionName), out result))
-            {
-                ThrowUnexpectedConfigValueTypeException(key, sectionName, typeof(int));
-            }
-            return result;
+            var value = GetString(key, sectionName);
+            return _configValueConverter.GetInt(key, value);
         }
 
         public int GetInt(Enum key, Enum sectionName)
@@ -111,13 +88,8 @@ namespace ByteDev.Configuration.ConfigSection
 
         public long GetLong(string key, string sectionName)
         {
-            long result;
-
-            if (!long.TryParse(GetString(key, sectionName), out result))
-            {
-                ThrowUnexpectedConfigValueTypeException(key, sectionName, typeof(long));
-            }
-            return result;
+            var value = GetString(key, sectionName);
+            return _configValueConverter.GetLong(key, value);
         }
 
         public long GetLong(Enum key, Enum sectionName)
@@ -127,13 +99,8 @@ namespace ByteDev.Configuration.ConfigSection
 
         public float GetFloat(string key, string sectionName)
         {
-            float result;
-
-            if (!float.TryParse(GetString(key, sectionName), out result))
-            {
-                ThrowUnexpectedConfigValueTypeException(key, sectionName, typeof(float));
-            }
-            return result;
+            var value = GetString(key, sectionName);
+            return _configValueConverter.GetFloat(key, value);
         }
 
         public float GetFloat(Enum key, Enum sectionName)
@@ -143,13 +110,8 @@ namespace ByteDev.Configuration.ConfigSection
 
         public double GetDouble(string key, string sectionName)
         {
-            double result;
-
-            if (!double.TryParse(GetString(key, sectionName), out result))
-            {
-                ThrowUnexpectedConfigValueTypeException(key, sectionName, typeof(double));
-            }
-            return result;
+            var value = GetString(key, sectionName);
+            return _configValueConverter.GetDouble(key, value);
         }
 
         public double GetDouble(Enum key, Enum sectionName)
@@ -159,24 +121,24 @@ namespace ByteDev.Configuration.ConfigSection
 
         public decimal GetDecimal(string key, string sectionName)
         {
-            decimal result;
-
-            if (!decimal.TryParse(GetString(key, sectionName), out result))
-            {
-                ThrowUnexpectedConfigValueTypeException(key, sectionName, typeof(decimal));
-            }
-            return result;
+            var value = GetString(key, sectionName);
+            return _configValueConverter.GetDecimal(key, value);
         }
 
         public decimal GetDecimal(Enum key, Enum sectionName)
         {
             return GetDecimal(key.ToString(), sectionName.ToString());
         }
-
-
-        private static void ThrowUnexpectedConfigValueTypeException(string key, string sectionName, Type expectedType)
+        
+        public Uri GetAbsoluteUri(string key, string sectionName)
         {
-            throw new UnexpectedConfigValueTypeException(string.Format("Config setting '{0}' in section '{1}' is not a valid {2} value", key, sectionName, expectedType));
+            var value = GetString(key, sectionName);
+            return _configValueConverter.GetAbsoluteUri(key, value);
+        }
+
+        public Uri GetAbsoluteUri(Enum key, Enum sectionName)
+        {
+            return GetAbsoluteUri(key.ToString(), sectionName.ToString());
         }
 
         private NameValueCollection GetSection(string sectionName)
@@ -185,7 +147,7 @@ namespace ByteDev.Configuration.ConfigSection
 
             if (section == null)
             {
-                throw new ConfigSettingsProviderException(string.Format("Config section '{0}' does not exist", sectionName));
+                throw new ConfigSettingsProviderException(string.Format("Config section '{0}' does not exist.", sectionName));
             }
             return section;
         }

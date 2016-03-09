@@ -1,4 +1,6 @@
-﻿namespace ByteDev.Configuration.AppSettings
+﻿using System;
+
+namespace ByteDev.Configuration.AppSettings
 {
     public interface IAppSettingsProvider
     {
@@ -11,5 +13,6 @@
         float GetFloat(string key);
         double GetDouble(string key);
         decimal GetDecimal(string key);
+        Uri GetAbsoluteUri(string key);
     }
 }

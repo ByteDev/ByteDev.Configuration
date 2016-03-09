@@ -635,5 +635,63 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
         }
 
+        [TestFixture]
+        public class GetAbsoluteUri : ConfigSettingsProviderTest
+        {
+            private readonly Uri _validAbsoluteUri = new Uri("http://www.google.com/");
+
+            [SetUp]
+            public void SetUp()
+            {
+                SetUpTest();
+            }
+
+            [Test]
+            public void WhenSectionDoesNotExist_ShouldThrowException()
+            {
+                WhenSectionDoesNotExist();
+
+                Assert.Throws<ConfigSettingsProviderException>(() => Act());
+            }
+
+            [Test]
+            public void WhenSectionExistsWithSettingWithNonUriValue_ShouldThrowException()
+            {
+                var section = new NameValueCollection { { SettingName, "X" } };
+
+                WhenSectionExists(section);
+
+                Assert.Throws<UnexpectedConfigValueTypeException>(() => Act());
+            }
+
+            [Test]
+            public void WhenSectionExistsWithSettingWithGetAbsoluteUriValue_ShouldReturnUri()
+            {
+                var section = new NameValueCollection { { SettingName, _validAbsoluteUri.ToString() } };
+
+                WhenSectionExists(section);
+
+                var result = Act();
+
+                Assert.That(result, Is.EqualTo(_validAbsoluteUri));
+            }
+
+            [Test]
+            public void WhenArgsAreEnums_AndSectionSettingExists_ShouldReturnSetting()
+            {
+                var section = new NameValueCollection { { SettingName, _validAbsoluteUri.ToString() } };
+
+                WhenSectionExists(section);
+
+                var result = ClassUnderTest.GetAbsoluteUri(DummyEnum.SettingName, DummyEnum.SectionName);
+
+                Assert.That(result, Is.EqualTo(_validAbsoluteUri));
+            }
+
+            private Uri Act()
+            {
+                return ClassUnderTest.GetAbsoluteUri(SettingName, SectionName);
+            }
+        }
     }
 }
