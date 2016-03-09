@@ -19,7 +19,7 @@ namespace ByteDev.Configuration
         }
 
         public UnexpectedConfigValueTypeException(string key, string value, Type expectedType)
-            : base(string.Format("Key: '{0}' value: '{1}' is not of expected type: {2}", key, value, expectedType.Name))
+            : base(string.Format("Key: '{0}' value: '{1}' is not of expected type: {2}.", key, value, expectedType.Name))
         {
         }
 

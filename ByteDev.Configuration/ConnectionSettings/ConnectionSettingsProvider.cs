@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 
 namespace ByteDev.Configuration.ConnectionSettings
 {
@@ -6,6 +7,10 @@ namespace ByteDev.Configuration.ConnectionSettings
     {
         public ConnectionStringSettings GetConnectionSettings(string key)
         {
+            if (string.IsNullOrEmpty(key))
+            {
+                throw new ArgumentException("Connection setting key cannot be null or empty.");
+            }
             return ConfigurationManager.ConnectionStrings[key];
         }
     }

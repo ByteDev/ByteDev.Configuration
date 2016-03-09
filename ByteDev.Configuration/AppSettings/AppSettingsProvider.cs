@@ -17,7 +17,7 @@ namespace ByteDev.Configuration.AppSettings
 			var value = ConfigurationManager.AppSettings[key];
 			if(value == null)
 			{
-                throw new AppSettingsKeyNotExistException(string.Format("Config file does not contain AppSetting with key: '{0}'", key));
+                throw new AppSettingsKeyNotExistException(string.Format("Config file does not contain AppSetting with key: '{0}'.", key));
 			}
 			return value;
 		}
