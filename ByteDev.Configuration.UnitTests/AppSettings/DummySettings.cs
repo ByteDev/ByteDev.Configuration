@@ -66,6 +66,11 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
             get { return GetAbsoluteUri("Exists.AbsoluteUri"); }
         }
 
+	    public Guid ExistsGuid
+	    {
+            get { return GetGuid("Exists.Guid"); }
+	    }
+
 
         public byte ExistsButIsNotChar
         {
@@ -115,6 +120,11 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
         public Uri ExistsButIsNotAbsoluteUri
 	    {
             get { return GetAbsoluteUri("Exists.ButIsNotAbsoluteUri"); }
+	    }
+
+	    public Guid ExistsButIsNotGuid
+	    {
+            get { return GetGuid("Exists.ButIsNotGuid"); }
 	    }
 	}
 }

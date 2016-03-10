@@ -36,5 +36,8 @@ namespace ByteDev.Configuration.ConfigSection
 
         Uri GetAbsoluteUri(string key, string sectionName);
         Uri GetAbsoluteUri(Enum key, Enum sectionName);
+
+        Guid GetGuid(string key, string sectionName);
+        Guid GetGuid(Enum key, Enum sectionName);
     }
 }

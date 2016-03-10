@@ -665,7 +665,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithGetAbsoluteUriValue_ShouldReturnUri()
+            public void WhenSectionExistsWithSettingWithAbsoluteUriValue_ShouldReturnUri()
             {
                 var section = new NameValueCollection { { SettingName, _validAbsoluteUri.ToString() } };
 
@@ -691,6 +691,79 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             private Uri Act()
             {
                 return ClassUnderTest.GetAbsoluteUri(SettingName, SectionName);
+            }
+        }
+
+        [TestFixture]
+        public class GetGuid : ConfigSettingsProviderTest
+        {
+            private const string ValidGuidWithBrackets = "{9DDC5329-2219-45EB-AACB-9842A9335128}";
+
+            private readonly Guid _validGuid = new Guid("9DDC5329-2219-45EB-AACB-9842A9335128");
+
+            [SetUp]
+            public void SetUp()
+            {
+                SetUpTest();
+            }
+
+            [Test]
+            public void WhenSectionDoesNotExist_ShouldThrowException()
+            {
+                WhenSectionDoesNotExist();
+
+                Assert.Throws<ConfigSettingsProviderException>(() => Act());
+            }
+
+            [Test]
+            public void WhenSettingWithNonGuidValue_ShouldThrowException()
+            {
+                var section = new NameValueCollection { { SettingName, "X" } };
+
+                WhenSectionExists(section);
+
+                Assert.Throws<UnexpectedConfigValueTypeException>(() => Act());
+            }
+
+            [Test]
+            public void WhenSettingWithValidGuidValue_ShouldReturnGuid()
+            {
+                var section = new NameValueCollection { { SettingName, _validGuid.ToString() } };
+
+                WhenSectionExists(section);
+
+                var result = Act();
+
+                Assert.That(result, Is.EqualTo(_validGuid));
+            }            
+            
+            [Test]
+            public void WhenSettingWithValidGuidWithBracketsValue_ShouldReturnGuid()
+            {
+                var section = new NameValueCollection { { SettingName, ValidGuidWithBrackets } };
+
+                WhenSectionExists(section);
+
+                var result = Act();
+
+                Assert.That(result, Is.EqualTo(_validGuid));
+            }
+
+            [Test]
+            public void WhenArgsAreEnums_AndSectionSettingExists_ShouldReturnSetting()
+            {
+                var section = new NameValueCollection { { SettingName, _validGuid.ToString() } };
+
+                WhenSectionExists(section);
+
+                var result = ClassUnderTest.GetGuid(DummyEnum.SettingName, DummyEnum.SectionName);
+
+                Assert.That(result, Is.EqualTo(_validGuid));
+            }
+
+            private Guid Act()
+            {
+                return ClassUnderTest.GetGuid(SettingName, SectionName);
             }
         }
     }

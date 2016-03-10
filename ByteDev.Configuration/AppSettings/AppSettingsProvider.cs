@@ -81,5 +81,11 @@ namespace ByteDev.Configuration.AppSettings
             var value = GetString(key);
             return _configValueConverter.GetAbsoluteUri(key, value);
         }
+
+        public Guid GetGuid(string key)
+        {
+            var value = GetString(key);
+            return _configValueConverter.GetGuid(key, value);
+        }
     }
 }

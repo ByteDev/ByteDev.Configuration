@@ -14,5 +14,6 @@ namespace ByteDev.Configuration.AppSettings
         double GetDouble(string key);
         decimal GetDecimal(string key);
         Uri GetAbsoluteUri(string key);
+        Guid GetGuid(string key);
     }
 }

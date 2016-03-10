@@ -103,5 +103,15 @@ namespace ByteDev.Configuration
             }
             return result;
         }
+
+        public Guid GetGuid(string key, string value)
+        {
+            Guid result;
+            if (!Guid.TryParse(value, out result))
+            {
+                throw new UnexpectedConfigValueTypeException(key, value, typeof(Guid));
+            }
+            return result;
+        }
     }
 }

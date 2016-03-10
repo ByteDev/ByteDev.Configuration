@@ -141,6 +141,17 @@ namespace ByteDev.Configuration.ConfigSection
             return GetAbsoluteUri(key.ToString(), sectionName.ToString());
         }
 
+        public Guid GetGuid(string key, string sectionName)
+        {
+            var value = GetString(key, sectionName);
+            return _configValueConverter.GetGuid(key, value);
+        }
+
+        public Guid GetGuid(Enum key, Enum sectionName)
+        {
+            return GetGuid(key.ToString(), sectionName.ToString());
+        }
+
         private NameValueCollection GetSection(string sectionName)
         {
             var section = _configSectionProvider.GetSection(sectionName);

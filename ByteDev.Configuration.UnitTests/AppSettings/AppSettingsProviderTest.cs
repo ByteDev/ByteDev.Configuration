@@ -1,4 +1,5 @@
-﻿using ByteDev.Configuration.AppSettings;
+﻿using System;
+using ByteDev.Configuration.AppSettings;
 using NUnit.Framework;
 
 namespace ByteDev.Configuration.UnitTests.AppSettings
@@ -154,6 +155,19 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
         public void WhenExistsButIsNotAbsoluteUri_ShouldThrowException()
         {
             Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _classUnderTest.ExistsButIsNotAbsoluteUri; });
+        }
+
+
+        [Test]
+        public void WhenGuidExists_ShouldGet()
+        {
+            Assert.That(_classUnderTest.ExistsGuid, Is.EqualTo(new Guid("9DDC5329-2219-45EB-AACB-9842A9335128")));
+        }
+
+        [Test]
+        public void WhenExistsButIsNotGuid_ShouldThrowException()
+        {
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _classUnderTest.ExistsButIsNotGuid; });
         }
 	}
 }
