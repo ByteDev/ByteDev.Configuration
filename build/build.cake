@@ -1,4 +1,3 @@
-#addin "nuget:?package=Cake.Incubator&version=2.0.0"
 #tool "nuget:?package=NUnit.ConsoleRunner"
 
 var nugetSources = new[] {"https://api.nuget.org/v3/index.json"};
