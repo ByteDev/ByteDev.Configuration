@@ -4,7 +4,9 @@ var nugetSources = new[] {"https://api.nuget.org/v3/index.json"};
 
 var target = Argument("target", "Default");
 
-var solutionFilePath = "../src/ByteDev.Configuration.sln";
+var repoName = "ByteDev.Configuration";
+
+var solutionFilePath = $"../src/{repoName}.sln";
 
 var artifactsDirectory = Directory("../artifacts");
 var nugetDirectory = artifactsDirectory + Directory("NuGet");
@@ -16,7 +18,7 @@ var configuration =
     HasArgument("Configuration") ? Argument<string>("Configuration") :
     EnvironmentVariable("Configuration") != null ? EnvironmentVariable("Configuration") : "Release";
 	
-Information("Configurtion: " + configuration);
+Information($"Configurtion: {configuration}");
 
 
 Task("Clean")
@@ -59,7 +61,7 @@ Task("UnitTests")
     .IsDependentOn("Build")
     .Does(() =>
 	{
-		var assemblies = GetFiles("../src/*UnitTests/bin/" + configuration + "/**/*UnitTests.dll");
+		var assemblies = GetFiles($"../src/*UnitTests/bin/{configuration}/**/*UnitTests.dll");
 		
 		NUnit3(assemblies);
 	});
@@ -74,7 +76,7 @@ Task("CreateNuGetPackages")
 			OutputDirectory = nugetDirectory
 		};
                 
-		DotNetCorePack("../src/ByteDev.Configuration/ByteDev.Configuration.csproj", settings);
+		DotNetCorePack($"../src/{repoName}/ByteDev.Configuration.csproj", settings);
     });
 
    
