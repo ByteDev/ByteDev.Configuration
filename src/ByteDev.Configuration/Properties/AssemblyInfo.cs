@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ByteDev.Configuration")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Moonpig.com")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ByteDev.Configuration")]
-[assembly: AssemblyCopyright("Copyright © Moonpig.com 2015")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

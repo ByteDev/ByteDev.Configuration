@@ -1,3 +1,6 @@
+git-reinit.bat
+git-reinit-github.bat
+
 #OS junk files
 [Tt]humbs.db
 *.DS_Store
@@ -70,4 +73,14 @@ packages/
 #Test files
 *.testsettings
 
+#Visual studio
+.vs/
+
+# Any binaries
 !lib/**
+
+# Cake build
+build/tools/**
+!build/
+!build/tools/packages.config
+artifacts/**

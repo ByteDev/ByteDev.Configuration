@@ -1,13 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteDev.Configuration", "ByteDev.Configuration\ByteDev.Configuration.csproj", "{388DA91D-EF50-4760-9740-5B2ECB98ACC2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteDev.Configuration.UnitTests", "ByteDev.Configuration.UnitTests\ByteDev.Configuration.UnitTests.csproj", "{E7247E0A-A550-42F7-91B8-EC58297FC96E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{B30F11F4-566E-482F-879E-B1236059D58F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B30F11F4-566E-482F-879E-B1236059D58F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{EAE363E7-5243-46AD-9A7D-30D5A78070BB}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,5 +34,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E7247E0A-A550-42F7-91B8-EC58297FC96E} = {B30F11F4-566E-482F-879E-B1236059D58F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC0D3335-BE89-45A9-87EE-E117F3521499}
 	EndGlobalSection
 EndGlobal
