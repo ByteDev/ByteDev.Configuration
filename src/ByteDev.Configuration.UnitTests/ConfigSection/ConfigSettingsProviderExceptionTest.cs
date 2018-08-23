@@ -15,17 +15,17 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             [Test]
             public void WhenCalledWithNoArgs_ShouldReturnException()
             {
-                var classUnderTest = new ConfigSettingsProviderException();
+                var sut = new ConfigSettingsProviderException();
 
-                Assert.IsNotNull(classUnderTest);
+                Assert.IsNotNull(sut);
             }
 
             [Test]
             public void WhenCalledWithMessage_ShouldSetMessage()
             {
-                var classUnderTest = new ConfigSettingsProviderException(Message);
+                var sut = new ConfigSettingsProviderException(Message);
 
-                Assert.AreEqual(Message, classUnderTest.Message);
+                Assert.AreEqual(Message, sut.Message);
             }
 
             [Test]
@@ -33,10 +33,10 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             {
                 var innerException = new Exception();
 
-                var classUnderTest = new ConfigSettingsProviderException(Message, innerException);
+                var sut = new ConfigSettingsProviderException(Message, innerException);
 
-                Assert.AreEqual(Message, classUnderTest.Message);
-                Assert.AreSame(innerException, classUnderTest.InnerException);
+                Assert.AreEqual(Message, sut.Message);
+                Assert.AreSame(innerException, sut.InnerException);
             }    
         }
     }

@@ -7,12 +7,12 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
     [TestFixture]
     public class ConfigSectionProviderTest
     {
-        private ConfigSectionProvider _classUnderTest;
+        private ConfigSectionProvider _sut;
 
         [SetUp]
         public void SetUp()
         {
-            _classUnderTest = new ConfigSectionProvider();
+            _sut = new ConfigSectionProvider();
         }
 
         [TestFixture]
@@ -21,13 +21,13 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             [Test]
             public void WhenSectionNameIsNull_ThenThrowException()
             {
-                Assert.Throws<ArgumentException>(() => _classUnderTest.GetSection(null));
+                Assert.Throws<ArgumentException>(() => _sut.GetSection(null));
             }
 
             [Test]
             public void WhenSectionNameIsEmpty_ThenThrowException()
             {
-                Assert.Throws<ArgumentException>(() => _classUnderTest.GetSection(string.Empty));
+                Assert.Throws<ArgumentException>(() => _sut.GetSection(string.Empty));
             }
         }
     }

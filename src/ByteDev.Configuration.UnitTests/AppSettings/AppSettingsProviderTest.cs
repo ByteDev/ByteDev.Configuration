@@ -7,167 +7,167 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
     [TestFixture]
 	public class AppSettingsProviderTest
 	{
-        private DummySettings _classUnderTest;
+        private DummySettings _sut;
 
         [SetUp]
         public void SetUp()
         {
-            _classUnderTest = new DummySettings();
+            _sut = new DummySettings();
         }
 
 	    [Test]
 	    public void WhenKeyDoesNotExist_ShouldThrowException()
 	    {
-	        Assert.Throws<AppSettingsKeyNotExistException>(() => { var s = _classUnderTest.NotExistString; });
+	        Assert.Throws<AppSettingsKeyNotExistException>(() => { var s = _sut.NotExistString; });
 	    }
 
 	    [Test]
         public void WhenStringExists_ShouldGet()
         {
-			Assert.That(_classUnderTest.ExistsString, Is.EqualTo("John"));
+			Assert.That(_sut.ExistsString, Is.EqualTo("John"));
 		}
 
 
 	    [Test]
 	    public void WhenCharExists_ShouldGet()
 	    {
-	        Assert.That(_classUnderTest.ExistsChar, Is.EqualTo('X'));
+	        Assert.That(_sut.ExistsChar, Is.EqualTo('X'));
 	    }
 
         [Test]
         public void WhenExistsButIsNotChar_ShouldThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var i = _classUnderTest.ExistsButIsNotChar; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var i = _sut.ExistsButIsNotChar; });
         }
 
 
         [Test]
         public void WhenBoolExists_ShouldGet()
         {
-            Assert.That(_classUnderTest.ExistsBool, Is.True);
+            Assert.That(_sut.ExistsBool, Is.True);
         }
 
         [Test]
         public void WhenExistsButIsNotBool_ShouldThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var b = _classUnderTest.ExistsButIsNotBool; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var b = _sut.ExistsButIsNotBool; });
         }
 
 
         [Test]
         public void WhenByteExists_ShouldGet()
         {
-            Assert.That(_classUnderTest.ExistsByte, Is.EqualTo(byte.MaxValue));
+            Assert.That(_sut.ExistsByte, Is.EqualTo(byte.MaxValue));
         }
 
         [Test]
         public void WhenExistsButIsNotByte_ShouldThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var i = _classUnderTest.ExistsButIsNotByte; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var i = _sut.ExistsButIsNotByte; });
         }
 
 
         [Test]
         public void WhenShortExists_ShouldGet()
         {
-            Assert.That(_classUnderTest.ExistsShort, Is.EqualTo(short.MaxValue));
+            Assert.That(_sut.ExistsShort, Is.EqualTo(short.MaxValue));
         }
 
         [Test]
         public void WhenExistsButIsNotShort_ShouldThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var i = _classUnderTest.ExistsButisNotShort; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var i = _sut.ExistsButisNotShort; });
         }
 
 
 	    [Test]
         public void WhenIntExists_ShouldGet()
         {
-            Assert.That(_classUnderTest.ExistsInt, Is.EqualTo(int.MaxValue));
+            Assert.That(_sut.ExistsInt, Is.EqualTo(int.MaxValue));
         }
 
         [Test]
         public void WhenExistsButIsNotInt_ShouldThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var i = _classUnderTest.ExistsButIsNotInt; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var i = _sut.ExistsButIsNotInt; });
         }
 
 
         [Test]
         public void WhenLongExists_ShouldGet()
         {
-            Assert.That(_classUnderTest.ExistsLong, Is.EqualTo(long.MaxValue));
+            Assert.That(_sut.ExistsLong, Is.EqualTo(long.MaxValue));
         }
 
         [Test]
         public void WhenExistsButIsNotLong_ShouldThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _classUnderTest.ExistsButIsNotLong; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _sut.ExistsButIsNotLong; });
         }
 
 
         [Test]
         public void WhenFloatExists_ShouldGet()
         {
-            Assert.That(_classUnderTest.ExistsFloat, Is.EqualTo(1.1234567f));
+            Assert.That(_sut.ExistsFloat, Is.EqualTo(1.1234567f));
         }
 
         [Test]
         public void WhenExistsButIsNotFloat_ShouldThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _classUnderTest.ExistsButIsNotFloat; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _sut.ExistsButIsNotFloat; });
         }
 
 
         [Test]
         public void WhenDoubletExists_ShouldGet()
         {
-            Assert.That(_classUnderTest.ExistsDouble, Is.EqualTo(1.123456789012345d));
+            Assert.That(_sut.ExistsDouble, Is.EqualTo(1.123456789012345d));
         }
 
         [Test]
         public void WhenExistsButIsNotDouble_ShouldThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _classUnderTest.ExistsButIsNotDouble; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _sut.ExistsButIsNotDouble; });
         }
 
 
         [Test]
         public void WhenDecimalExists_ShouldGet()
         {
-            Assert.That(_classUnderTest.ExistsDecimal, Is.EqualTo(1.1234567890123456789012345678m));
+            Assert.That(_sut.ExistsDecimal, Is.EqualTo(1.1234567890123456789012345678m));
         }
 
         [Test]
         public void WhenExistsButIsNotDecimal_ShouldThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _classUnderTest.ExistsButIsNotDecimal; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _sut.ExistsButIsNotDecimal; });
         }
 
 
         [Test]
         public void WhenAbsoluteUriExists_ShouldGet()
         {
-            Assert.That(_classUnderTest.ExistsAbsoluteUri.ToString(), Is.EqualTo("http://www.google.com/"));
+            Assert.That(_sut.ExistsAbsoluteUri.ToString(), Is.EqualTo("http://www.google.com/"));
         }
 
         [Test]
         public void WhenExistsButIsNotAbsoluteUri_ShouldThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _classUnderTest.ExistsButIsNotAbsoluteUri; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _sut.ExistsButIsNotAbsoluteUri; });
         }
 
 
         [Test]
         public void WhenGuidExists_ShouldGet()
         {
-            Assert.That(_classUnderTest.ExistsGuid, Is.EqualTo(new Guid("9DDC5329-2219-45EB-AACB-9842A9335128")));
+            Assert.That(_sut.ExistsGuid, Is.EqualTo(new Guid("9DDC5329-2219-45EB-AACB-9842A9335128")));
         }
 
         [Test]
         public void WhenExistsButIsNotGuid_ShouldThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _classUnderTest.ExistsButIsNotGuid; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _sut.ExistsButIsNotGuid; });
         }
 	}
 }
