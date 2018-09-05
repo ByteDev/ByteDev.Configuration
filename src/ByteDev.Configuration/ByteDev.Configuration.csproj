@@ -6,9 +6,8 @@
     <Company />
     <PackageTags>configuration config app.config settings</PackageTags>
     <Description>A collection of classes to help retrieve settings from App.config files in .NET.</Description>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
     <Version>1.0.0</Version>
+    <PackageTags>configuration config</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
