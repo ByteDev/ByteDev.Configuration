@@ -71,7 +71,7 @@ public class MyConfig
 
 This will lead to the following stack:
 
-```c#
+```
 MyConfig
 -> ConfigSettingsProvider 
 --> ConfigProvider 
