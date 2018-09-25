@@ -1,3 +1,5 @@
+[![NuGet Package](https://img.shields.io/nuget/v/ByteDev.Configuration.svg)](https://www.nuget.org/packages/ByteDev.Configuration)
+
 # ByteDev.Configuration
 
 A collection of classes to help retrieve settings from App.config files in .NET.
