@@ -1,3 +1,4 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/github/bytedev/ByteDev.Configuration?branch=master&svg=true)](https://ci.appveyor.com/project/bytedev/ByteDev-Configuration/branch/master)
 [![NuGet Package](https://img.shields.io/nuget/v/ByteDev.Configuration.svg)](https://www.nuget.org/packages/ByteDev.Configuration)
 
 # ByteDev.Configuration
