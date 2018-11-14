@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteDev.Configuration", "ByteDev.Configuration\ByteDev.Configuration.csproj", "{388DA91D-EF50-4760-9740-5B2ECB98ACC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteDev.Configuration.UnitTests", "ByteDev.Configuration.UnitTests\ByteDev.Configuration.UnitTests.csproj", "{E7247E0A-A550-42F7-91B8-EC58297FC96E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteDev.Configuration.UnitTests", "ByteDev.Configuration.UnitTests\ByteDev.Configuration.UnitTests.csproj", "{E7247E0A-A550-42F7-91B8-EC58297FC96E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B30F11F4-566E-482F-879E-B1236059D58F}"
 EndProject
@@ -17,7 +17,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{3376014E-83B5-441B-B82C-EFB712FF94D4}"
 	ProjectSection(SolutionItems) = preProject
 		..\build\build.cake = ..\build\build.cake
-		..\build\nuget-publish.ps1 = ..\build\nuget-publish.ps1
+		..\build\ByteDev.Utilities.cake = ..\build\ByteDev.Utilities.cake
 	EndProjectSection
 EndProject
 Global
