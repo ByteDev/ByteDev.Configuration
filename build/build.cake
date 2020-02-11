@@ -1,20 +1,23 @@
-#addin nuget:?package=Cake.Incubator&version=3.0.0
-#tool "nuget:?package=NUnit.ConsoleRunner"
+#addin "nuget:?package=Cake.Incubator&version=5.1.0"
+#tool "nuget:?package=NUnit.ConsoleRunner&version=3.10.0"
+#tool "nuget:?package=GitVersion.CommandLine&version=5.1.3"
 #load "ByteDev.Utilities.cake"
+
+var solutionName = "ByteDev.Configuration";
+var projName = "ByteDev.Configuration";
+
+var solutionFilePath = "../" + solutionName + ".sln";
+var nuspecFilePath = projName + ".nuspec";
 
 var nugetSources = new[] {"https://api.nuget.org/v3/index.json"};
 
 var target = Argument("target", "Default");
 
-var repoName = "ByteDev.Configuration";
-
-var solutionFilePath = $"../src/{repoName}.sln";
-
 var artifactsDirectory = Directory("../artifacts");
 var nugetDirectory = artifactsDirectory + Directory("NuGet");
-	
+
 var configuration = GetBuildConfiguration();
-	
+
 Information("Configurtion: " + configuration);
 
 
@@ -22,7 +25,7 @@ Task("Clean")
     .Does(() =>
 	{
 		CleanDirectory(artifactsDirectory);
-
+	
 		CleanBinDirectories();
 		CleanObjDirectories();
 	});
@@ -55,9 +58,13 @@ Task("UnitTests")
     .IsDependentOn("Build")
     .Does(() =>
 	{
-		var assemblies = GetFiles($"../src/*UnitTests/bin/{configuration}/**/*.UnitTests.dll");
-		
-		NUnit3(assemblies);
+		var settings = new DotNetCoreTestSettings()
+		{
+			Configuration = configuration,
+			NoBuild = true
+		};
+
+		DotNetCoreUnitTests(settings);
 	});
 	
 Task("CreateNuGetPackages")
@@ -66,14 +73,13 @@ Task("CreateNuGetPackages")
     {
 		var nugetVersion = GetNuGetVersion();
 
-        var settings = new DotNetCorePackSettings()
+		var nugetSettings = new NuGetPackSettings 
 		{
-			ArgumentCustomization = args => args.Append("/p:Version=" + nugetVersion),
-			Configuration = configuration,
+			Version = nugetVersion,
 			OutputDirectory = nugetDirectory
 		};
                 
-		DotNetCorePack($"../src/{repoName}/ByteDev.Configuration.csproj", settings);
+		NuGetPack(nuspecFilePath, nugetSettings);
     });
 
    

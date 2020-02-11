@@ -15,6 +15,12 @@ ByteDev.Configuration is hosted as a package on nuget.org.  To install from the 
 
 Further details can be found on the [nuget page](https://www.nuget.org/packages/ByteDev.Configuration/).
 
+## Release Notes
+
+Releases follow semantic versioning.
+
+Full details of the release notes can be viewed on [GitHub](https://github.com/ByteDev/ByteDev.Configuration/blob/master/docs/RELEASE-NOTES.md).
+
 ## Code
 
 The repo can be cloned from git bash:
@@ -45,7 +51,7 @@ Example config:
 
 Simple usage:
 
-```c#
+```csharp
 var sectionProvider = new ConfigSectionProvider();
 
 var settingsProvider = new ConfigSettingsProvider(sectionProvider);
@@ -53,9 +59,9 @@ var settingsProvider = new ConfigSettingsProvider(sectionProvider);
 bool value = settingsProvider.GetBool("EnableAssessment", "Health");
 ```
 
-For tidiness you can then wrap the use of ConfigSettingsProvider in your own config class:
+Example of wrapping the use of ConfigSettingsProvider in your own config class:
 
-```c#
+```csharp
 public class MyConfig
 {
 	private readonly IConfigSettingsProvider _provider;
@@ -87,13 +93,13 @@ Example config:
 
 ```xml
 <appSettings>
-	<add key="ClientRetries" value="5"/>
+    <add key="ClientRetries" value="5"/>
 </appSettings>
 ```
 
 Simple usage:
 
-```c#
+```csharp
 var provider = new AppSettingsProvider();
 
 int value = provider.GetInt("ClientRetries");
@@ -105,13 +111,13 @@ Example config:
 
 ```xml
 <connectionStrings>
-	<add name="MyDb" connectionString="Data Source=.;Initial Catalog=MyDb;Integrated Security=True" />
+    <add name="MyDb" connectionString="Data Source=.;Initial Catalog=MyDb;Integrated Security=True" />
 </connectionStrings>
 ```
 
 Simple usage:
 
-```c#
+```csharp
 var provider = new ConnectionSettingsProvider();
 
 var connSettings = provider.GetConnectionSettings("MyDb");
