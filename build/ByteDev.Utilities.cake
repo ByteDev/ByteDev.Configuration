@@ -69,3 +69,16 @@ void DotNetCoreIntTests(DotNetCoreTestSettings settings)
 	DotNetCoreTests(projects, settings);
 }
 
+void NetFrameworkUnitTests(string configuration)
+{
+	var assemblies = GetFiles($"../test/*UnitTests/bin/{configuration}/**/*.UnitTests.dll");
+		
+	NUnit3(assemblies);
+}
+
+void NetFrameworkIntTests(string configuration)
+{
+	var assemblies = GetFiles($"../test/*IntTests/bin/{configuration}/**/*.IntTests.dll");
+		
+	NUnit3(assemblies);
+}

@@ -3,21 +3,19 @@
 #tool "nuget:?package=GitVersion.CommandLine&version=5.1.3"
 #load "ByteDev.Utilities.cake"
 
-var solutionName = "ByteDev.Configuration";
-var projName = "ByteDev.Configuration";
-
-var solutionFilePath = "../" + solutionName + ".sln";
-var nuspecFilePath = projName + ".nuspec";
-
 var nugetSources = new[] {"https://api.nuget.org/v3/index.json"};
 
 var target = Argument("target", "Default");
 
+var repoName = "ByteDev.Configuration";
+
+var solutionFilePath = $"../{repoName}.sln";
+
 var artifactsDirectory = Directory("../artifacts");
 var nugetDirectory = artifactsDirectory + Directory("NuGet");
-
+	
 var configuration = GetBuildConfiguration();
-
+	
 Information("Configurtion: " + configuration);
 
 
@@ -25,7 +23,7 @@ Task("Clean")
     .Does(() =>
 	{
 		CleanDirectory(artifactsDirectory);
-	
+
 		CleanBinDirectories();
 		CleanObjDirectories();
 	});
@@ -58,13 +56,7 @@ Task("UnitTests")
     .IsDependentOn("Build")
     .Does(() =>
 	{
-		var settings = new DotNetCoreTestSettings()
-		{
-			Configuration = configuration,
-			NoBuild = true
-		};
-
-		DotNetCoreUnitTests(settings);
+		NetFrameworkUnitTests(configuration);
 	});
 	
 Task("CreateNuGetPackages")
@@ -73,13 +65,14 @@ Task("CreateNuGetPackages")
     {
 		var nugetVersion = GetNuGetVersion();
 
-		var nugetSettings = new NuGetPackSettings 
+        var settings = new DotNetCorePackSettings()
 		{
-			Version = nugetVersion,
+			ArgumentCustomization = args => args.Append("/p:Version=" + nugetVersion),
+			Configuration = configuration,
 			OutputDirectory = nugetDirectory
 		};
                 
-		NuGetPack(nuspecFilePath, nugetSettings);
+		DotNetCorePack($"../src/{repoName}/ByteDev.Configuration.csproj", settings);
     });
 
    
