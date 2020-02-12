@@ -20,6 +20,7 @@ namespace ByteDev.Configuration.ConnectionSettings
             {
                 throw new ArgumentException("Connection setting key cannot be null or empty.");
             }
+
             return ConfigurationManager.ConnectionStrings[key];
         }
     }
