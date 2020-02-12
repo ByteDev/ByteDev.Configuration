@@ -13,6 +13,7 @@
     <iconUrl>https://raw.githubusercontent.com/bytedev/ByteDev.Configuration/master/images/icon.png</iconUrl>
     <dependencies>
       <group targetFramework=".NETStandard2.0" />
+      <dependency id="System.Configuration.ConfigurationManager" version="4.7.0" />
     </dependencies>
   </metadata>
   <files>

@@ -28,7 +28,7 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
 
         public decimal ExistsDecimal => GetDecimal("Exists.Decimal");
 
-        public Uri ExistsAbsoluteUri => GetAbsoluteUri("Exists.AbsoluteUri");
+        public Uri ExistsAbsoluteUri => GetUri("Exists.AbsoluteUri");
 
         public Guid ExistsGuid => GetGuid("Exists.Guid");
 
@@ -51,7 +51,7 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
 
         public decimal ExistsButIsNotDecimal => GetDecimal("Exists.ButIsNotDecimal");
 
-        public Uri ExistsButIsNotAbsoluteUri => GetAbsoluteUri("Exists.ButIsNotAbsoluteUri");
+        public Uri ExistsButIsNotAbsoluteUri => GetUri("Exists.ButIsNotAbsoluteUri");
 
         public Guid ExistsButIsNotGuid => GetGuid("Exists.ButIsNotGuid");
     }

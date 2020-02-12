@@ -6,8 +6,7 @@ namespace ByteDev.Configuration
     {
         public char GetChar(string key, string value)
         {
-            char result;
-            if (!char.TryParse(value, out result))
+            if (!char.TryParse(value, out var result))
             {
                 throw new UnexpectedConfigValueTypeException(key, value, typeof(char));
             }
@@ -16,8 +15,7 @@ namespace ByteDev.Configuration
 
         public bool GetBool(string key, string value)
         {
-            bool result;
-            if (!bool.TryParse(value, out result))
+            if (!bool.TryParse(value, out var result))
             {
                 throw new UnexpectedConfigValueTypeException(key, value, typeof(bool));
             }
@@ -26,8 +24,7 @@ namespace ByteDev.Configuration
 
         public byte GetByte(string key, string value)
         {
-            byte result;
-            if (!byte.TryParse(value, out result))
+            if (!byte.TryParse(value, out var result))
             {
                 throw new UnexpectedConfigValueTypeException(key, value, typeof(byte));
             }
@@ -36,8 +33,7 @@ namespace ByteDev.Configuration
 
         public int GetInt(string key, string value)
         {
-            int result;
-            if (!int.TryParse(value, out result))
+            if (!int.TryParse(value, out var result))
             {
                 throw new UnexpectedConfigValueTypeException(key, value, typeof(int));
             }
@@ -46,8 +42,7 @@ namespace ByteDev.Configuration
 
         public long GetLong(string key, string value)
         {
-            long result;
-            if (!long.TryParse(value, out result))
+            if (!long.TryParse(value, out var result))
             {
                 throw new UnexpectedConfigValueTypeException(key, value, typeof(long));
             }
@@ -56,8 +51,7 @@ namespace ByteDev.Configuration
 
         public short GetShort(string key, string value)
         {
-            short result;
-            if (!short.TryParse(value, out result))
+            if (!short.TryParse(value, out var result))
             {
                 throw new UnexpectedConfigValueTypeException(key, value, typeof(short));
             }
@@ -66,8 +60,7 @@ namespace ByteDev.Configuration
         
         public float GetFloat(string key, string value)
         {
-            float result;
-            if (!float.TryParse(value, out result))
+            if (!float.TryParse(value, out var result))
             {
                 throw new UnexpectedConfigValueTypeException(key, value, typeof(float));
             }
@@ -76,8 +69,7 @@ namespace ByteDev.Configuration
 
         public double GetDouble(string key, string value)
         {
-            double result;
-            if (!double.TryParse(value, out result))
+            if (!double.TryParse(value, out var result))
             {
                 throw new UnexpectedConfigValueTypeException(key, value, typeof(double));
             }
@@ -86,8 +78,7 @@ namespace ByteDev.Configuration
 
         public decimal GetDecimal(string key, string value)
         {
-            decimal result;
-            if (!decimal.TryParse(value, out result))
+            if (!decimal.TryParse(value, out var result))
             {
                 throw new UnexpectedConfigValueTypeException(key, value, typeof(decimal));
             }
@@ -96,8 +87,7 @@ namespace ByteDev.Configuration
 
         public Uri GetAbsoluteUri(string key, string value)
         {
-            Uri result;
-            if (!Uri.TryCreate(value, UriKind.Absolute, out result))
+            if (!Uri.TryCreate(value, UriKind.Absolute, out var result))
             {
                 throw new UnexpectedConfigValueTypeException(key, value, typeof(Uri));
             }
@@ -106,8 +96,7 @@ namespace ByteDev.Configuration
 
         public Guid GetGuid(string key, string value)
         {
-            Guid result;
-            if (!Guid.TryParse(value, out result))
+            if (!Guid.TryParse(value, out var result))
             {
                 throw new UnexpectedConfigValueTypeException(key, value, typeof(Guid));
             }

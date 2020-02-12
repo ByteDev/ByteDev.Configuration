@@ -21,7 +21,7 @@ namespace ByteDev.Configuration.ConfigSection
 
             if (value == null)
             {
-                throw new ConfigSettingsProviderException(string.Format("Key '{0}' missing from section '{1}' in config.", key, sectionName));
+                throw new ConfigSettingsProviderException($"Key '{key}' missing from section '{sectionName}' in config.");
             }
             return value;
         }
@@ -158,7 +158,7 @@ namespace ByteDev.Configuration.ConfigSection
 
             if (section == null)
             {
-                throw new ConfigSettingsProviderException(string.Format("Config section '{0}' does not exist.", sectionName));
+                throw new ConfigSettingsProviderException($"Config section '{sectionName}' does not exist.");
             }
             return section;
         }
