@@ -1,21 +1,20 @@
 ﻿using System;
-using ByteDev.Configuration.ConfigSection;
 using NUnit.Framework;
 
-namespace ByteDev.Configuration.UnitTests.ConfigSection
+namespace ByteDev.Configuration.UnitTests
 {
     [TestFixture]
-    public class ConfigSettingsProviderExceptionTest
+    public class UnexpectedConfigValueTypeExceptionTest
     {
         [TestFixture]
-        public class Constructor
+        public class Constructor : UnexpectedConfigValueTypeExceptionTest
         {
             private const string Message = "something went wrong";
 
             [Test]
             public void WhenCalledWithNoArgs_ThenReturnException()
             {
-                var sut = new ConfigSettingsProviderException();
+                var sut = new UnexpectedConfigValueTypeException();
 
                 Assert.That(sut, Is.Not.Null);
             }
@@ -23,7 +22,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             [Test]
             public void WhenCalledWithMessage_ThenSetMessage()
             {
-                var sut = new ConfigSettingsProviderException(Message);
+                var sut = new UnexpectedConfigValueTypeException(Message);
 
                 Assert.That(sut.Message, Is.EqualTo(Message));
             }
@@ -33,11 +32,19 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             {
                 var innerException = new Exception();
 
-                var sut = new ConfigSettingsProviderException(Message, innerException);
+                var sut = new UnexpectedConfigValueTypeException(Message, innerException);
 
                 Assert.That(sut.Message, Is.EqualTo(Message));
                 Assert.That(sut.InnerException, Is.SameAs(innerException));
-            }    
+            }
+
+            [Test]
+            public void WhenCalledWithKeyValueType_ThenSetMessage()
+            {
+                var sut = new UnexpectedConfigValueTypeException("key1", "value1", typeof(bool));
+
+                Assert.That(sut.Message, Is.EqualTo("Key: 'key1' value: 'value1' is not of expected type: Boolean."));
+            }
         }
     }
 }

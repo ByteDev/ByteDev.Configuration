@@ -4,6 +4,8 @@
 
 Breaking changes:
 - IAppSettingsProvider.GetAbsoluteUri is now GetUri
+- IConfigSettingsProvider.GetAbsoluteUri is now GetUri
+- Removed all enum based overloads in ConfigSettingsProvider
 
 New features:
 - (None)

@@ -146,7 +146,7 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
 
 
         [Test]
-        public void WhenAbsoluteUriExists_ThenGet()
+        public void WhenUriExists_ThenGet()
         {
             Assert.That(_sut.ExistsAbsoluteUri.ToString(), Is.EqualTo("http://www.google.com/"));
         }

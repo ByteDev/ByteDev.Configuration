@@ -23,6 +23,7 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.AppSettings.AppSettingsKeyNotExistException">Config does not contain AppSetting with <paramref name="key" />.</exception>
 	    public string GetString(string key)
 		{
 			var value = ConfigurationManager.AppSettings[key];
@@ -40,6 +41,7 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type char.</exception>
         public char GetChar(string key)
         {
             var value = GetString(key);
@@ -51,6 +53,7 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type bool.</exception>
         public bool GetBool(string key)
 		{
 		    var value = GetString(key);
@@ -62,6 +65,7 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type byte.</exception>
         public byte GetByte(string key)
 	    {
 	        var value = GetString(key);
@@ -73,6 +77,7 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type short.</exception>
         public short GetShort(string key)
         {
             var value = GetString(key);
@@ -84,6 +89,7 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type int.</exception>
         public int GetInt(string key)
 		{
 		    var value = GetString(key);
@@ -95,6 +101,7 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type long.</exception>
         public long GetLong(string key)
         {
             var value = GetString(key);
@@ -106,6 +113,7 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type float.</exception>
         public float GetFloat(string key)
         {
             var value = GetString(key);
@@ -117,6 +125,7 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type double.</exception>
         public double GetDouble(string key)
         {
             var value = GetString(key);
@@ -128,6 +137,7 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type decimal.</exception>
         public decimal GetDecimal(string key)
         {
             var value = GetString(key);
@@ -139,6 +149,7 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type Uri.</exception>
         public Uri GetUri(string key)
         {
             var value = GetString(key);
@@ -150,6 +161,7 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type Guid.</exception>
         public Guid GetGuid(string key)
         {
             var value = GetString(key);

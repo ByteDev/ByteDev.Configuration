@@ -55,7 +55,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionDoesNotExist_ShouldThrowException()
+            public void WhenSectionDoesNotExist_ThenThrowException()
             {
                 WhenSectionDoesNotExist();
 
@@ -63,7 +63,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSettingDoesNotExist_ShouldThrowException()
+            public void WhenSettingDoesNotExist_ThenThrowException()
             {
                 WhenSectionIsEmpty();
 
@@ -71,7 +71,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSetting_ShouldReturnSetting()
+            public void WhenSectionExistsWithSetting_ThenReturnSetting()
             {
                 const string value = "http://localhost";
                 var section = new NameValueCollection { { SettingName, value } };
@@ -81,19 +81,6 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
                 var result = Act();
 
                 Assert.That(result, Is.EqualTo(value));
-            }
-
-            [Test]
-            public void WhenArgsAreEnums_AndSectionSettingExists_ShouldReturnSetting()
-            {
-                const string value = "http://localhost";
-                var section = new NameValueCollection { { SettingName, value } };
-
-                WhenSectionExists(section);
-
-                var result = ClassUnderTest.GetString(DummyEnum.SettingName, DummyEnum.SectionName);
-
-                Assert.That(result, Is.EqualTo(result));
             }
 
             private string Act()
@@ -112,7 +99,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionDoesNotExist_ShouldThrowException()
+            public void WhenSectionDoesNotExist_ThenThrowException()
             {
                 WhenSectionDoesNotExist();
 
@@ -120,7 +107,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithNonCharValue_ShouldThrowException()
+            public void WhenSectionExistsWithSettingWithNonCharValue_ThenThrowException()
             {
                 var section = new NameValueCollection { { SettingName, "notChar" } };
 
@@ -130,7 +117,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithCharValue_ShouldReturnChar()
+            public void WhenSectionExistsWithSettingWithCharValue_ThenReturnChar()
             {
                 const string value = "X";
                 var section = new NameValueCollection { { SettingName, value } };
@@ -140,19 +127,6 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
                 var result = Act();
 
                 Assert.That(result, Is.TypeOf<char>());
-                Assert.That(result, Is.EqualTo(Convert.ToChar(value)));
-            }
-
-            [Test]
-            public void WhenArgsAreEnums_AndSectionSettingExists_ShouldReturnSetting()
-            {
-                const string value = "X";
-                var section = new NameValueCollection { { SettingName, value } };
-
-                WhenSectionExists(section);
-
-                var result = ClassUnderTest.GetChar(DummyEnum.SettingName, DummyEnum.SectionName);
-
                 Assert.That(result, Is.EqualTo(Convert.ToChar(value)));
             }
 
@@ -172,7 +146,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionDoesNotExist_ShouldThrowException()
+            public void WhenSectionDoesNotExist_ThenThrowException()
             {
                 WhenSectionDoesNotExist();
 
@@ -180,7 +154,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithNonByteValue_ShouldThrowException()
+            public void WhenSectionExistsWithSettingWithNonByteValue_ThenThrowException()
             {
                 var section = new NameValueCollection { { SettingName, "1000" } };
 
@@ -190,7 +164,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithByteValue_ShouldReturnByte()
+            public void WhenSectionExistsWithSettingWithByteValue_ThenReturnByte()
             {
                 const string value = "5";
                 var section = new NameValueCollection { { SettingName, value } };
@@ -200,19 +174,6 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
                 var result = Act();
 
                 Assert.That(result, Is.TypeOf<byte>());
-                Assert.That(result, Is.EqualTo(Convert.ToByte(value)));
-            }
-
-            [Test]
-            public void WhenArgsAreEnums_AndSectionSettingExists_ShouldReturnSetting()
-            {
-                const string value = "5";
-                var section = new NameValueCollection { { SettingName, value } };
-
-                WhenSectionExists(section);
-
-                var result = ClassUnderTest.GetByte(DummyEnum.SettingName, DummyEnum.SectionName);
-
                 Assert.That(result, Is.EqualTo(Convert.ToByte(value)));
             }
 
@@ -232,7 +193,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionDoesNotExist_ShouldThrowException()
+            public void WhenSectionDoesNotExist_ThenThrowException()
             {
                 WhenSectionDoesNotExist();
 
@@ -240,7 +201,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithNonShortValue_ShouldThrowException()
+            public void WhenSectionExistsWithSettingWithNonShortValue_ThenThrowException()
             {
                 var section = new NameValueCollection { { SettingName, "X" } };
 
@@ -250,25 +211,13 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithShortValue_ShouldReturnShort()
+            public void WhenSectionExistsWithSettingWithShortValue_ThenReturnShort()
             {
                 var section = new NameValueCollection { { SettingName, "3" } };
 
                 WhenSectionExists(section);
 
                 var result = Act();
-
-                Assert.That(result, Is.EqualTo(3));
-            }
-
-            [Test]
-            public void WhenArgsAreEnums_AndSectionSettingExists_ShouldReturnSetting()
-            {
-                var section = new NameValueCollection { { SettingName, "3" } };
-
-                WhenSectionExists(section);
-
-                var result = ClassUnderTest.GetShort(DummyEnum.SettingName, DummyEnum.SectionName);
 
                 Assert.That(result, Is.EqualTo(3));
             }
@@ -289,7 +238,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionDoesNotExist_ShouldThrowException()
+            public void WhenSectionDoesNotExist_ThenThrowException()
             {
                 WhenSectionDoesNotExist();
 
@@ -297,7 +246,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithNonIntValue_ShouldThrowException()
+            public void WhenSectionExistsWithSettingWithNonIntValue_ThenThrowException()
             {
                 var section = new NameValueCollection { { SettingName, "X" } };
 
@@ -307,25 +256,13 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithIntValue_ShouldReturnInt()
+            public void WhenSectionExistsWithSettingWithIntValue_ThenReturnInt()
             {
                 var section = new NameValueCollection { { SettingName, "3" } };
 
                 WhenSectionExists(section);
 
                 var result = Act();
-
-                Assert.That(result, Is.EqualTo(3));
-            }
-
-            [Test]
-            public void WhenArgsAreEnums_AndSectionSettingExists_ShouldReturnSetting()
-            {
-                var section = new NameValueCollection { { SettingName, "3" } };
-
-                WhenSectionExists(section);
-
-                var result = ClassUnderTest.GetInt(DummyEnum.SettingName, DummyEnum.SectionName);
 
                 Assert.That(result, Is.EqualTo(3));
             }
@@ -346,7 +283,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionDoesNotExist_ShouldThrowException()
+            public void WhenSectionDoesNotExist_ThenThrowException()
             {
                 WhenSectionDoesNotExist();
 
@@ -354,7 +291,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithNonIntValue_ShouldThrowException()
+            public void WhenSectionExistsWithSettingWithNonIntValue_ThenThrowException()
             {
                 var section = new NameValueCollection { { SettingName, "X" } };
 
@@ -364,25 +301,13 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithLongValue_ShouldReturnInt()
+            public void WhenSectionExistsWithSettingWithLongValue_ThenReturnInt()
             {
                 var section = new NameValueCollection { { SettingName, "3" } };
 
                 WhenSectionExists(section);
 
                 var result = Act();
-
-                Assert.That(result, Is.EqualTo(3));
-            }
-
-            [Test]
-            public void WhenArgsAreEnums_AndSectionSettingExists_ShouldReturnSetting()
-            {
-                var section = new NameValueCollection { { SettingName, "3" } };
-
-                WhenSectionExists(section);
-
-                var result = ClassUnderTest.GetLong(DummyEnum.SettingName, DummyEnum.SectionName);
 
                 Assert.That(result, Is.EqualTo(3));
             }
@@ -403,7 +328,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionDoesNotExist_ShouldThrowException()
+            public void WhenSectionDoesNotExist_ThenThrowException()
             {
                 WhenSectionDoesNotExist();
 
@@ -411,7 +336,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithNonBoolValue_ShouldThrowException()
+            public void WhenSectionExistsWithSettingWithNonBoolValue_ThenThrowException()
             {
                 var section = new NameValueCollection { { SettingName, "X" } };
 
@@ -421,7 +346,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithTrueValue_ShouldReturnTrue()
+            public void WhenSectionExistsWithSettingWithTrueValue_ThenReturnTrue()
             {
                 var section = new NameValueCollection { { SettingName, "true" } };
 
@@ -433,7 +358,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithFalseValue_ShouldReturnFalse()
+            public void WhenSectionExistsWithSettingWithFalseValue_ThenReturnFalse()
             {
                 var section = new NameValueCollection { { SettingName, "false" } };
 
@@ -442,18 +367,6 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
                 var result = Act();
 
                 Assert.That(result, Is.False);
-            }
-
-            [Test]
-            public void WhenArgsAreEnums_AndSectionSettingExists_ShouldReturnSetting()
-            {
-                var section = new NameValueCollection { { SettingName, "true" } };
-
-                WhenSectionExists(section);
-
-                var result = ClassUnderTest.GetBool(DummyEnum.SettingName, DummyEnum.SectionName);
-
-                Assert.That(result, Is.True);
             }
 
             private bool Act()
@@ -472,7 +385,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionDoesNotExist_ShouldThrowException()
+            public void WhenSectionDoesNotExist_ThenThrowException()
             {
                 WhenSectionDoesNotExist();
 
@@ -480,7 +393,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithNonFloatValue_ShouldThrowException()
+            public void WhenSectionExistsWithSettingWithNonFloatValue_ThenThrowException()
             {
                 var section = new NameValueCollection { { SettingName, "X" } };
 
@@ -490,25 +403,13 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithFloatValue_ShouldReturnFloat()
+            public void WhenSectionExistsWithSettingWithFloatValue_ThenReturnFloat()
             {
                 var section = new NameValueCollection { { SettingName, "3.4" } };
 
                 WhenSectionExists(section);
 
                 var result = Act();
-
-                Assert.That(result, Is.EqualTo(3.4f));
-            }
-
-            [Test]
-            public void WhenArgsAreEnums_AndSectionSettingExists_ShouldReturnSetting()
-            {
-                var section = new NameValueCollection { { SettingName, "3.4" } };
-
-                WhenSectionExists(section);
-
-                var result = ClassUnderTest.GetFloat(DummyEnum.SettingName, DummyEnum.SectionName);
 
                 Assert.That(result, Is.EqualTo(3.4f));
             }
@@ -529,7 +430,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionDoesNotExist_ShouldThrowException()
+            public void WhenSectionDoesNotExist_ThenThrowException()
             {
                 WhenSectionDoesNotExist();
 
@@ -537,7 +438,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithNonDoubleValue_ShouldThrowException()
+            public void WhenSectionExistsWithSettingWithNonDoubleValue_ThenThrowException()
             {
                 var section = new NameValueCollection { { SettingName, "X" } };
 
@@ -547,25 +448,13 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithDoubleValue_ShouldReturnDouble()
+            public void WhenSectionExistsWithSettingWithDoubleValue_ThenReturnDouble()
             {
                 var section = new NameValueCollection { { SettingName, "1.123456789123456" } };
 
                 WhenSectionExists(section);
 
                 var result = Act();
-
-                Assert.That(result, Is.EqualTo(1.123456789123456d));
-            }
-
-            [Test]
-            public void WhenArgsAreEnums_AndSectionSettingExists_ShouldReturnSetting()
-            {
-                var section = new NameValueCollection { { SettingName, "1.123456789123456" } };
-
-                WhenSectionExists(section);
-
-                var result = ClassUnderTest.GetDouble(DummyEnum.SettingName, DummyEnum.SectionName);
 
                 Assert.That(result, Is.EqualTo(1.123456789123456d));
             }
@@ -588,7 +477,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionDoesNotExist_ShouldThrowException()
+            public void WhenSectionDoesNotExist_ThenThrowException()
             {
                 WhenSectionDoesNotExist();
 
@@ -596,7 +485,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithNonDecimalValue_ShouldThrowException()
+            public void WhenSectionExistsWithSettingWithNonDecimalValue_ThenThrowException()
             {
                 var section = new NameValueCollection { { SettingName, "X" } };
 
@@ -606,25 +495,13 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithGetDecimalValue_ShouldReturnGetDecimal()
+            public void WhenSectionExistsWithSettingWithGetDecimalValue_ThenReturnGetDecimal()
             {
                 var section = new NameValueCollection { { SettingName, ValidDecimal.ToString(CultureInfo.InvariantCulture) } };
 
                 WhenSectionExists(section);
 
                 var result = Act();
-
-                Assert.That(result, Is.EqualTo(ValidDecimal));
-            }
-
-            [Test]
-            public void WhenArgsAreEnums_AndSectionSettingExists_ShouldReturnSetting()
-            {
-                var section = new NameValueCollection { { SettingName, ValidDecimal.ToString(CultureInfo.InvariantCulture) } };
-
-                WhenSectionExists(section);
-
-                var result = ClassUnderTest.GetDecimal(DummyEnum.SettingName, DummyEnum.SectionName);
 
                 Assert.That(result, Is.EqualTo(ValidDecimal));
             }
@@ -636,7 +513,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
         }
 
         [TestFixture]
-        public class GetAbsoluteUri : ConfigSettingsProviderTest
+        public class GetUri : ConfigSettingsProviderTest
         {
             private readonly Uri _validAbsoluteUri = new Uri("http://www.google.com/");
 
@@ -647,7 +524,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionDoesNotExist_ShouldThrowException()
+            public void WhenSectionDoesNotExist_ThenThrowException()
             {
                 WhenSectionDoesNotExist();
 
@@ -655,7 +532,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithNonUriValue_ShouldThrowException()
+            public void WhenSectionExistsWithSettingWithNonUriValue_ThenThrowException()
             {
                 var section = new NameValueCollection { { SettingName, "X" } };
 
@@ -665,7 +542,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionExistsWithSettingWithAbsoluteUriValue_ShouldReturnUri()
+            public void WhenSectionExistsWithSettingWithAbsoluteUriValue_ThenReturnUri()
             {
                 var section = new NameValueCollection { { SettingName, _validAbsoluteUri.ToString() } };
 
@@ -676,21 +553,9 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
                 Assert.That(result, Is.EqualTo(_validAbsoluteUri));
             }
 
-            [Test]
-            public void WhenArgsAreEnums_AndSectionSettingExists_ShouldReturnSetting()
-            {
-                var section = new NameValueCollection { { SettingName, _validAbsoluteUri.ToString() } };
-
-                WhenSectionExists(section);
-
-                var result = ClassUnderTest.GetAbsoluteUri(DummyEnum.SettingName, DummyEnum.SectionName);
-
-                Assert.That(result, Is.EqualTo(_validAbsoluteUri));
-            }
-
             private Uri Act()
             {
-                return ClassUnderTest.GetAbsoluteUri(SettingName, SectionName);
+                return ClassUnderTest.GetUri(SettingName, SectionName);
             }
         }
 
@@ -708,7 +573,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSectionDoesNotExist_ShouldThrowException()
+            public void WhenSectionDoesNotExist_ThenThrowException()
             {
                 WhenSectionDoesNotExist();
 
@@ -716,7 +581,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSettingWithNonGuidValue_ShouldThrowException()
+            public void WhenSettingWithNonGuidValue_ThenThrowException()
             {
                 var section = new NameValueCollection { { SettingName, "X" } };
 
@@ -726,7 +591,7 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }
 
             [Test]
-            public void WhenSettingWithValidGuidValue_ShouldReturnGuid()
+            public void WhenSettingWithValidGuidValue_ThenReturnGuid()
             {
                 var section = new NameValueCollection { { SettingName, _validGuid.ToString() } };
 
@@ -738,25 +603,13 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             }            
             
             [Test]
-            public void WhenSettingWithValidGuidWithBracketsValue_ShouldReturnGuid()
+            public void WhenSettingWithValidGuidWithBracketsValue_ThenReturnGuid()
             {
                 var section = new NameValueCollection { { SettingName, ValidGuidWithBrackets } };
 
                 WhenSectionExists(section);
 
                 var result = Act();
-
-                Assert.That(result, Is.EqualTo(_validGuid));
-            }
-
-            [Test]
-            public void WhenArgsAreEnums_AndSectionSettingExists_ShouldReturnSetting()
-            {
-                var section = new NameValueCollection { { SettingName, _validGuid.ToString() } };
-
-                WhenSectionExists(section);
-
-                var result = ClassUnderTest.GetGuid(DummyEnum.SettingName, DummyEnum.SectionName);
 
                 Assert.That(result, Is.EqualTo(_validGuid));
             }
