@@ -3,13 +3,15 @@
 #tool "nuget:?package=GitVersion.CommandLine&version=5.1.3"
 #load "ByteDev.Utilities.cake"
 
+var solutionName = "ByteDev.Configuration";
+var projName = "ByteDev.Configuration";
+
+var solutionFilePath = "../" + solutionName + ".sln";
+var nuspecFilePath = projName + ".nuspec";
+
 var nugetSources = new[] {"https://api.nuget.org/v3/index.json"};
 
 var target = Argument("target", "Default");
-
-var repoName = "ByteDev.Configuration";
-
-var solutionFilePath = $"../{repoName}.sln";
 
 var artifactsDirectory = Directory("../artifacts");
 var nugetDirectory = artifactsDirectory + Directory("NuGet");
@@ -65,14 +67,13 @@ Task("CreateNuGetPackages")
     {
 		var nugetVersion = GetNuGetVersion();
 
-        var settings = new DotNetCorePackSettings()
+		var nugetSettings = new NuGetPackSettings 
 		{
-			ArgumentCustomization = args => args.Append("/p:Version=" + nugetVersion),
-			Configuration = configuration,
+			Version = nugetVersion,
 			OutputDirectory = nugetDirectory
 		};
                 
-		DotNetCorePack($"../src/{repoName}/ByteDev.Configuration.csproj", settings);
+		NuGetPack(nuspecFilePath, nugetSettings);
     });
 
    
