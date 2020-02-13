@@ -29,6 +29,14 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
             {
                 Assert.Throws<ArgumentException>(() => _sut.GetSection(string.Empty));
             }
+
+            [Test]
+            public void WhenSectionNameDoesNotExist_ThenReturnNull()
+            {
+                var result = _sut.GetSection("sectionDoesNotExist");
+
+                Assert.That(result, Is.Null);
+            }
         }
     }
 }
