@@ -1,6 +1,6 @@
 # Release Notes
 
-## 2.0.0 - ?? February 2020
+## 2.0.1 - 13 February 2020
 
 Breaking changes:
 - IAppSettingsProvider.GetAbsoluteUri is now GetUri

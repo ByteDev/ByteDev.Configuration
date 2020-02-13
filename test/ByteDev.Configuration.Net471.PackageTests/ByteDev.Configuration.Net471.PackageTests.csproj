@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ByteDev.Configuration" Version="1.0.0" />
+    <PackageReference Include="ByteDev.Configuration" Version="2.0.1" />
     <PackageReference Include="NUnit" Version="3.10.1" />
   </ItemGroup>
 
