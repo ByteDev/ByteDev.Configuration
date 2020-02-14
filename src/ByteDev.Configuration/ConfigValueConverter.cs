@@ -2,9 +2,9 @@
 
 namespace ByteDev.Configuration
 {
-    internal class ConfigValueConverter
+    internal static class ConfigValueConverter
     {
-        public char GetChar(string key, string value)
+        public static char GetChar(string key, string value)
         {
             if (!char.TryParse(value, out var result))
             {
@@ -13,7 +13,7 @@ namespace ByteDev.Configuration
             return result;
         }
 
-        public bool GetBool(string key, string value)
+        public static bool GetBool(string key, string value)
         {
             if (!bool.TryParse(value, out var result))
             {
@@ -22,7 +22,7 @@ namespace ByteDev.Configuration
             return result;
         }
 
-        public byte GetByte(string key, string value)
+        public static byte GetByte(string key, string value)
         {
             if (!byte.TryParse(value, out var result))
             {
@@ -31,7 +31,7 @@ namespace ByteDev.Configuration
             return result;
         }
 
-        public int GetInt(string key, string value)
+        public static int GetInt(string key, string value)
         {
             if (!int.TryParse(value, out var result))
             {
@@ -40,7 +40,7 @@ namespace ByteDev.Configuration
             return result;
         }
 
-        public long GetLong(string key, string value)
+        public static long GetLong(string key, string value)
         {
             if (!long.TryParse(value, out var result))
             {
@@ -49,7 +49,7 @@ namespace ByteDev.Configuration
             return result;
         }
 
-        public short GetShort(string key, string value)
+        public static short GetShort(string key, string value)
         {
             if (!short.TryParse(value, out var result))
             {
@@ -58,7 +58,7 @@ namespace ByteDev.Configuration
             return result;
         }
         
-        public float GetFloat(string key, string value)
+        public static float GetFloat(string key, string value)
         {
             if (!float.TryParse(value, out var result))
             {
@@ -67,7 +67,7 @@ namespace ByteDev.Configuration
             return result;
         }
 
-        public double GetDouble(string key, string value)
+        public static double GetDouble(string key, string value)
         {
             if (!double.TryParse(value, out var result))
             {
@@ -76,7 +76,7 @@ namespace ByteDev.Configuration
             return result;
         }
 
-        public decimal GetDecimal(string key, string value)
+        public static decimal GetDecimal(string key, string value)
         {
             if (!decimal.TryParse(value, out var result))
             {
@@ -85,7 +85,7 @@ namespace ByteDev.Configuration
             return result;
         }
 
-        public Uri GetAbsoluteUri(string key, string value)
+        public static Uri GetAbsoluteUri(string key, string value)
         {
             if (!Uri.TryCreate(value, UriKind.Absolute, out var result))
             {
@@ -94,7 +94,7 @@ namespace ByteDev.Configuration
             return result;
         }
 
-        public Guid GetGuid(string key, string value)
+        public static Guid GetGuid(string key, string value)
         {
             if (!Guid.TryParse(value, out var result))
             {

@@ -8,16 +8,6 @@ namespace ByteDev.Configuration.AppSettings
     /// </summary>
     public class AppSettingsProvider : IAppSettingsProvider
     {
-        private readonly ConfigValueConverter _configValueConverter;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:ByteDev.Configuration.AppSettings.AppSettingsProvider" /> class.
-        /// </summary>
-        public AppSettingsProvider()
-        {
-            _configValueConverter = new ConfigValueConverter();
-        }
-
         /// <summary>
         /// Retrieve an app setting string value from config.
         /// </summary>
@@ -41,11 +31,12 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.AppSettings.AppSettingsKeyNotExistException">Config does not contain AppSetting with <paramref name="key" />.</exception>
         /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type char.</exception>
         public char GetChar(string key)
         {
             var value = GetString(key);
-            return _configValueConverter.GetChar(key, value);
+            return ConfigValueConverter.GetChar(key, value);
         }
 
         /// <summary>
@@ -53,11 +44,12 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.AppSettings.AppSettingsKeyNotExistException">Config does not contain AppSetting with <paramref name="key" />.</exception>
         /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type bool.</exception>
         public bool GetBool(string key)
 		{
 		    var value = GetString(key);
-	        return _configValueConverter.GetBool(key, value);
+	        return ConfigValueConverter.GetBool(key, value);
 		}
 
         /// <summary>
@@ -65,11 +57,12 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.AppSettings.AppSettingsKeyNotExistException">Config does not contain AppSetting with <paramref name="key" />.</exception>
         /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type byte.</exception>
         public byte GetByte(string key)
 	    {
 	        var value = GetString(key);
-	        return _configValueConverter.GetByte(key, value);
+	        return ConfigValueConverter.GetByte(key, value);
 	    }
 
         /// <summary>
@@ -77,11 +70,12 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.AppSettings.AppSettingsKeyNotExistException">Config does not contain AppSetting with <paramref name="key" />.</exception>
         /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type short.</exception>
         public short GetShort(string key)
         {
             var value = GetString(key);
-            return _configValueConverter.GetShort(key, value);
+            return ConfigValueConverter.GetShort(key, value);
         }
 
         /// <summary>
@@ -89,11 +83,12 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.AppSettings.AppSettingsKeyNotExistException">Config does not contain AppSetting with <paramref name="key" />.</exception>
         /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type int.</exception>
         public int GetInt(string key)
 		{
 		    var value = GetString(key);
-	        return _configValueConverter.GetInt(key, value);
+	        return ConfigValueConverter.GetInt(key, value);
 		}
 
         /// <summary>
@@ -101,11 +96,12 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.AppSettings.AppSettingsKeyNotExistException">Config does not contain AppSetting with <paramref name="key" />.</exception>
         /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type long.</exception>
         public long GetLong(string key)
         {
             var value = GetString(key);
-	        return _configValueConverter.GetLong(key, value);
+	        return ConfigValueConverter.GetLong(key, value);
         }
 
         /// <summary>
@@ -113,11 +109,12 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.AppSettings.AppSettingsKeyNotExistException">Config does not contain AppSetting with <paramref name="key" />.</exception>
         /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type float.</exception>
         public float GetFloat(string key)
         {
             var value = GetString(key);
-            return _configValueConverter.GetFloat(key, value);
+            return ConfigValueConverter.GetFloat(key, value);
         }
 
         /// <summary>
@@ -125,11 +122,12 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.AppSettings.AppSettingsKeyNotExistException">Config does not contain AppSetting with <paramref name="key" />.</exception>
         /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type double.</exception>
         public double GetDouble(string key)
         {
             var value = GetString(key);
-            return _configValueConverter.GetDouble(key, value);
+            return ConfigValueConverter.GetDouble(key, value);
         }
 
         /// <summary>
@@ -137,11 +135,12 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.AppSettings.AppSettingsKeyNotExistException">Config does not contain AppSetting with <paramref name="key" />.</exception>
         /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type decimal.</exception>
         public decimal GetDecimal(string key)
         {
             var value = GetString(key);
-            return _configValueConverter.GetDecimal(key, value);
+            return ConfigValueConverter.GetDecimal(key, value);
         }
 
         /// <summary>
@@ -149,11 +148,12 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.AppSettings.AppSettingsKeyNotExistException">Config does not contain AppSetting with <paramref name="key" />.</exception>
         /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type Uri.</exception>
         public Uri GetUri(string key)
         {
             var value = GetString(key);
-            return _configValueConverter.GetAbsoluteUri(key, value);
+            return ConfigValueConverter.GetAbsoluteUri(key, value);
         }
 
         /// <summary>
@@ -161,11 +161,12 @@ namespace ByteDev.Configuration.AppSettings
         /// </summary>
         /// <param name="key">Key to use when retrieving the value.</param>
         /// <returns>App setting value.</returns>
+        /// <exception cref="T:ByteDev.Configuration.AppSettings.AppSettingsKeyNotExistException">Config does not contain AppSetting with <paramref name="key" />.</exception>
         /// <exception cref="T:ByteDev.Configuration.UnexpectedConfigValueTypeException">Config value is not of type Guid.</exception>
         public Guid GetGuid(string key)
         {
             var value = GetString(key);
-            return _configValueConverter.GetGuid(key, value);
+            return ConfigValueConverter.GetGuid(key, value);
         }
     }
 }
