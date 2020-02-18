@@ -1,7 +1,7 @@
 ﻿using ByteDev.Configuration.ConfigSection;
 using NUnit.Framework;
 
-namespace ByteDev.Configuration.Net471.PackageTests
+namespace ByteDev.Configuration.Net461.PackageTests
 {
     [TestFixture]
     public class ConfigSettingsProviderTests

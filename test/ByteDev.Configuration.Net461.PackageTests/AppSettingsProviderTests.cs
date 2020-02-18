@@ -1,7 +1,7 @@
 ﻿using ByteDev.Configuration.AppSettings;
 using NUnit.Framework;
 
-namespace ByteDev.Configuration.Net471.PackageTests
+namespace ByteDev.Configuration.Net461.PackageTests
 {
     [TestFixture]
     public class AppSettingsProviderTests

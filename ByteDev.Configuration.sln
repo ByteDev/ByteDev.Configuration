@@ -22,8 +22,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteDev.Configuration.UnitT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteDev.Configuration", "src\ByteDev.Configuration\ByteDev.Configuration.csproj", "{1D9B7E89-5E96-468F-AC85-902EC36616E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByteDev.Configuration.Net471.PackageTests", "test\ByteDev.Configuration.Net471.PackageTests\ByteDev.Configuration.Net471.PackageTests.csproj", "{100B8BE6-CCF1-46B7-8B96-97CCC2E1C597}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,17 +36,12 @@ Global
 		{1D9B7E89-5E96-468F-AC85-902EC36616E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D9B7E89-5E96-468F-AC85-902EC36616E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D9B7E89-5E96-468F-AC85-902EC36616E0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{100B8BE6-CCF1-46B7-8B96-97CCC2E1C597}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{100B8BE6-CCF1-46B7-8B96-97CCC2E1C597}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{100B8BE6-CCF1-46B7-8B96-97CCC2E1C597}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{100B8BE6-CCF1-46B7-8B96-97CCC2E1C597}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{558F58BA-FF0D-4F3C-B9ED-C052C110C0B8} = {B30F11F4-566E-482F-879E-B1236059D58F}
-		{100B8BE6-CCF1-46B7-8B96-97CCC2E1C597} = {B30F11F4-566E-482F-879E-B1236059D58F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BC0D3335-BE89-45A9-87EE-E117F3521499}

@@ -1,7 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net471</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
     <IsPackable>false</IsPackable>
+    <AssemblyName>ByteDev.Configuration.Net461.PackageTests</AssemblyName>
+    <RootNamespace>ByteDev.Configuration.Net461.PackageTests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
