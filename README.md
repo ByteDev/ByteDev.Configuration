@@ -4,7 +4,7 @@
 
 # ByteDev.Configuration
 
-A collection of classes to help retrieve settings from App.config files in .NET.
+Collection of classes to help retrieve settings from App.config files in .NET.
 
 ## Installation
 
@@ -21,12 +21,6 @@ Further details can be found on the [nuget page](https://www.nuget.org/packages/
 Releases follow semantic versioning.
 
 Full details of the release notes can be viewed on [GitHub](https://github.com/ByteDev/ByteDev.Configuration/blob/master/docs/RELEASE-NOTES.md).
-
-## Code
-
-The repo can be cloned from git bash:
-
-`git clone https://github.com/ByteDev/ByteDev.Configuration`
 
 ## Usage
 

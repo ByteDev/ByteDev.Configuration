@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{3376014E
 		build\ByteDev.Utilities.cake = build\ByteDev.Utilities.cake
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteDev.Configuration.UnitTests", "test\ByteDev.Configuration.UnitTests\ByteDev.Configuration.UnitTests.csproj", "{558F58BA-FF0D-4F3C-B9ED-C052C110C0B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteDev.Configuration.UnitTests", "tests\ByteDev.Configuration.UnitTests\ByteDev.Configuration.UnitTests.csproj", "{558F58BA-FF0D-4F3C-B9ED-C052C110C0B8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteDev.Configuration", "src\ByteDev.Configuration\ByteDev.Configuration.csproj", "{1D9B7E89-5E96-468F-AC85-902EC36616E0}"
 EndProject

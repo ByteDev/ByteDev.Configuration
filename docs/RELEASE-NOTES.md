@@ -1,6 +1,6 @@
 # Release Notes
 
-## 2.0.2 - ?? February 2020
+## 2.0.2 - 26 July 2020
 
 Breaking changes:
 - (None)
@@ -10,6 +10,7 @@ New features:
 
 Bug fixes / internal changes:
 - XML documentation improvements
+- Package updates
 
 ## 2.0.1 - 13 February 2020
 

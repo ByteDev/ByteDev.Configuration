@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{3376014E
 		build\ByteDev.Utilities.cake = build\ByteDev.Utilities.cake
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteDev.Configuration.Net461.PackageTests", "test\ByteDev.Configuration.Net461.PackageTests\ByteDev.Configuration.Net461.PackageTests.csproj", "{B9BEF170-6362-4503-A493-6B9DB68A5B6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByteDev.Configuration.Net461.PackageTests", "tests\ByteDev.Configuration.Net461.PackageTests\ByteDev.Configuration.Net461.PackageTests.csproj", "{B9BEF170-6362-4503-A493-6B9DB68A5B6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
