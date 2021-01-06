@@ -1,6 +1,7 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/github/bytedev/ByteDev.Configuration?branch=master&svg=true)](https://ci.appveyor.com/project/bytedev/ByteDev-Configuration/branch/master)
 [![NuGet Package](https://img.shields.io/nuget/v/ByteDev.Configuration.svg)](https://www.nuget.org/packages/ByteDev.Configuration)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/caec96a1404d46288c6947f5686ee627)](https://www.codacy.com/manual/ByteDev/ByteDev.Configuration?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ByteDev/ByteDev.Configuration&amp;utm_campaign=Badge_Grade)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/ByteDev/ByteDev.Configuration/blob/master/LICENSE)
 
 # ByteDev.Configuration
 
@@ -29,6 +30,8 @@ Functionality is in three main areas:
 - Config Sections & Settings
 - App Settings
 - Connection Settings
+
+---
 
 ### Config Sections & Settings
 
@@ -82,6 +85,8 @@ MyConfig
 ---> System.Configuration.ConfigurationManager
 ```
 
+---
+
 ### App Settings
 
 Example config:
@@ -99,6 +104,8 @@ var provider = new AppSettingsProvider();
 
 int value = provider.GetInt("ClientRetries");
 ```
+
+---
 
 ### Connection Settings
 

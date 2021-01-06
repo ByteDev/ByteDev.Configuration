@@ -2,7 +2,7 @@
 using System.Collections.Specialized;
 using System.Globalization;
 using ByteDev.Configuration.ConfigSection;
-using Moq;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace ByteDev.Configuration.UnitTests.ConfigSection
@@ -15,34 +15,28 @@ namespace ByteDev.Configuration.UnitTests.ConfigSection
 
         protected ConfigSettingsProvider ClassUnderTest;
 
-        private Mock<IConfigSectionProvider> _configSectionProvider;
+        private IConfigSectionProvider _configSectionProvider;
 
         protected void SetUpTest()
         {
-            _configSectionProvider = new Mock<IConfigSectionProvider>();
+            _configSectionProvider = Substitute.For<IConfigSectionProvider>();
 
-            ClassUnderTest = new ConfigSettingsProvider(_configSectionProvider.Object);
+            ClassUnderTest = new ConfigSettingsProvider(_configSectionProvider);
         }
 
         protected void WhenSectionDoesNotExist()
         {
-            _configSectionProvider.Setup(p => p.GetSection(SectionName)).Returns((NameValueCollection)null);
+            _configSectionProvider.GetSection(SectionName).Returns((NameValueCollection)null);
         }
 
         protected void WhenSectionExists(NameValueCollection section)
         {
-            _configSectionProvider.Setup(p => p.GetSection(SectionName)).Returns(section);
+            _configSectionProvider.GetSection(SectionName).Returns(section);
         }
 
         protected void WhenSectionIsEmpty()
         {
-            _configSectionProvider.Setup(p => p.GetSection(SectionName)).Returns(new NameValueCollection());
-        }
-
-        protected enum DummyEnum
-        {
-            SectionName,
-            SettingName
+            _configSectionProvider.GetSection(SectionName).Returns(new NameValueCollection());
         }
 
         [TestFixture]

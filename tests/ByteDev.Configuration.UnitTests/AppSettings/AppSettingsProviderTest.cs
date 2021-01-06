@@ -18,7 +18,7 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
 	    [Test]
 	    public void WhenKeyDoesNotExist_ThenThrowException()
 	    {
-	        Assert.Throws<AppSettingsKeyNotExistException>(() => { var s = _sut.NotExistString; });
+	        Assert.Throws<AppSettingsKeyNotExistException>(() => { _ = _sut.NotExistString; });
 	    }
 
 	    [Test]
@@ -37,7 +37,7 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
         [Test]
         public void WhenExistsButIsNotChar_ThenThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var i = _sut.ExistsButIsNotChar; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { _ = _sut.ExistsButIsNotChar; });
         }
 
 
@@ -50,7 +50,7 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
         [Test]
         public void WhenExistsButIsNotBool_ThenThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var b = _sut.ExistsButIsNotBool; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { _ = _sut.ExistsButIsNotBool; });
         }
 
 
@@ -63,7 +63,7 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
         [Test]
         public void WhenExistsButIsNotByte_ThenThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var i = _sut.ExistsButIsNotByte; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { _ = _sut.ExistsButIsNotByte; });
         }
 
 
@@ -76,7 +76,7 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
         [Test]
         public void WhenExistsButIsNotShort_ThenThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var i = _sut.ExistsButisNotShort; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { _ = _sut.ExistsButisNotShort; });
         }
 
 
@@ -89,7 +89,7 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
         [Test]
         public void WhenExistsButIsNotInt_ThenThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var i = _sut.ExistsButIsNotInt; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { _ = _sut.ExistsButIsNotInt; });
         }
 
 
@@ -102,7 +102,7 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
         [Test]
         public void WhenExistsButIsNotLong_ThenThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _sut.ExistsButIsNotLong; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { _ = _sut.ExistsButIsNotLong; });
         }
 
 
@@ -115,7 +115,7 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
         [Test]
         public void WhenExistsButIsNotFloat_ThenThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _sut.ExistsButIsNotFloat; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { _ = _sut.ExistsButIsNotFloat; });
         }
 
 
@@ -128,7 +128,7 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
         [Test]
         public void WhenExistsButIsNotDouble_ThenThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _sut.ExistsButIsNotDouble; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { _ = _sut.ExistsButIsNotDouble; });
         }
 
 
@@ -141,7 +141,7 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
         [Test]
         public void WhenExistsButIsNotDecimal_ThenThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _sut.ExistsButIsNotDecimal; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { _ = _sut.ExistsButIsNotDecimal; });
         }
 
 
@@ -154,7 +154,7 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
         [Test]
         public void WhenExistsButIsNotAbsoluteUri_ThenThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _sut.ExistsButIsNotAbsoluteUri; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { _ = _sut.ExistsButIsNotAbsoluteUri; });
         }
 
 
@@ -167,7 +167,7 @@ namespace ByteDev.Configuration.UnitTests.AppSettings
         [Test]
         public void WhenExistsButIsNotGuid_ThenThrowException()
         {
-            Assert.Throws<UnexpectedConfigValueTypeException>(() => { var l = _sut.ExistsButIsNotGuid; });
+            Assert.Throws<UnexpectedConfigValueTypeException>(() => { _ = _sut.ExistsButIsNotGuid; });
         }
 	}
 }
